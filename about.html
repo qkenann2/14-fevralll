@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>About Me - Personal Portfolio</title>
+	<style>
+		:root{--bg:#f8fafc;--accent:#0b74de;--muted:#6b7280}
+		*{box-sizing:border-box}
+		body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;line-height:1.5;background:var(--bg);color:#111}
+		header{background:#fff;border-bottom:1px solid #e6eef7}
+		.container{max-width:960px;margin:0 auto;padding:1rem}
+		nav{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+		.brand{font-weight:600;color:var(--accent);font-size:1.1rem}
+		.nav-links{list-style:none;padding:0;margin:0;display:flex;gap:1rem;flex-wrap:wrap}
+		.nav-links a{color:inherit;text-decoration:none;padding:.5rem;display:inline-block;font-size:0.95rem}
+		main{padding:2rem 1rem}
+		h1{font-size:2rem;margin:.5rem 0 1rem 0;color:var(--accent)}
+		h2{font-size:1.25rem;margin:1.5rem 0 .75rem 0;color:var(--accent)}
+		p{margin:.75rem 0;color:#333;font-size:0.95rem}
+		ul, ol{margin:1rem 0;padding-left:1.5rem}
+		li{margin:.5rem 0;font-size:0.95rem}
+		.section{margin:2rem 0}
+		footer{border-top:1px solid #e6eef7;background:#fff}
+		.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;text-align:center}
+		.socials{display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center}
+		.socials a{display:inline-flex;align-items:center;gap:.5rem;color:inherit;text-decoration:none;padding:.5rem}
+		.icon{width:20px;height:20px;display:inline-block}
+		.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+		@media (max-width:620px){
+			.nav-links{flex-direction:column;gap:.5rem;width:100%}
+			.nav-links a{font-size:0.85rem;padding:0.4rem}
+			nav{gap:0.5rem}
+			.brand{font-size:1rem}
+			main{padding:1rem}
+			h1{font-size:1.5rem;margin:.5rem 0 0.75rem 0}
+			h2{font-size:1.1rem;margin:1rem 0 .5rem 0}
+			p{font-size:0.9rem;margin:0.5rem 0}
+			ul, ol{margin:0.75rem 0;padding-left:1.25rem}
+			li{margin:.35rem 0}
+			.section{margin:1.5rem 0}
+			.footer-inner{flex-direction:column}
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<div class="container">
+			<nav aria-label="Primary">
+				<div class="brand">Kanan Garayev</div>
+				<ul class="nav-links">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="about.html">About</a></li>
+					<li><a href="index.html#projects">Projects</a></li>
+					<li><a href="index.html#resume">Resume</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<main class="container">
+		<h1>About Me</h1>
+
+		<section class="section" aria-labelledby="background-heading">
+			<h2 id="background-heading">Background</h2>
+			<p>
+				I'm Kanan Garayev, a dedicated student in the SITE 1101 program at ADA University, where I'm developing a strong foundation in information systems and technology. 
+				This comprehensive program has equipped me with practical skills and knowledge in various aspects of IT, from systems management and hardware fundamentals to 
+				database design, web development, and network concepts.
+			</p>
+			<p>
+				Based in Baku, Azerbaijan, my academic journey has instilled in me a passion for solving problems through technology and understanding how 
+				information systems can drive efficiency and innovation in organizations. I believe in continuous learning and am eager to apply my knowledge to real-world challenges.
+			</p>
+		</section>
+
+		<section class="section" aria-labelledby="interests-heading">
+			<h2 id="interests-heading">Professional Interests</h2>
+			<p>I'm particularly interested in:</p>
+			<ul>
+				<li><strong>Web Development</strong> - Building responsive, user-friendly web applications and interfaces</li>
+				<li><strong>Hardware & Electronics</strong> - Understanding how computer hardware works through hands-on projects with breadboards and microcontrollers</li>
+				<li><strong>Information Systems</strong> - Understanding how technology can solve real-world business problems</li>
+				<li><strong>Database Design</strong> - Designing efficient database systems and working with data</li>
+				<li><strong>AI & Emerging Technologies</strong> - Exploring artificial intelligence and teaching others about tech innovation</li>
+				<li><strong>IT Project Management</strong> - Coordinating technical projects and teams effectively</li>
+			</ul>
+		</section>
+
+		<section class="section" aria-labelledby="skills-heading">
+			<h2 id="skills-heading">Skills & Activities</h2>
+			<p>Through coursework and personal practice, I've developed experience with:</p>
+			<ul>
+				<li><strong>Programming:</strong> HTML, CSS, JavaScript, and other languages relevant to the SITE curriculum</li>
+				<li><strong>Web Development:</strong> Building responsive websites and understanding front-end and back-end technologies</li>
+				<li><strong>Database Management:</strong> Working with relational databases and SQL queries</li>
+				<li><strong>System Administration:</strong> Basic server management and network concepts</li>
+				<li><strong>IT Fundamentals:</strong> Hardware, networking, and operating systems knowledge</li>
+				<li><strong>Problem-Solving:</strong> Approaching technical challenges methodically and creatively</li>
+			</ul>
+			<p>
+				I regularly engage in coding practice, exploring new technologies, and completing hands-on projects that apply 
+				classroom concepts to real-world scenarios.
+			</p>
+		</section>
+
+		<section class="section" aria-labelledby="hobbies-heading">
+			<h2 id="hobbies-heading">Beyond Technology</h2>
+			<p>
+				Outside of coding and studies, I'm deeply committed to personal growth and maintaining a healthy lifestyle. 
+				I'm passionate about fitness and spend time at the gym working on both physical strength and mental discipline. 
+				Gaming is another passion of mine—I enjoy challenging games that require strategic thinking and problem-solving, 
+				which I believe complements my approach to coding and technology. These activities help me maintain a balanced lifestyle 
+				while pushing myself to improve mentally and physically.
+			</p>
+		</section>
+
+		<section class="section" aria-labelledby="goals-heading">
+			<h2 id="goals-heading">Goals & Vision</h2>
+			<p>
+				I'm committed to continuous learning and professional growth in the technology field. My goal is to become a skilled 
+				IT professional who can effectively design, implement, and manage technology solutions that make a meaningful impact. 
+				I aspire to work in roles that combine my interests in web development, hardware, and system design while contributing to innovation and 
+				technical excellence. I look forward to mentoring others and sharing knowledge about technology with the next generation.
+			</p>
+		</section>
+	</main>
+
+	<footer>
+		<div class="container footer-inner">
+			<div class="socials" aria-label="Social links">
+				<a href="https://github.com/Kanann27033/personal-website" title="GitHub repository of this website">
+					<span class="icon" aria-hidden="true">
+						<svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+							<path d="M12 .5C5.7.5.9 5.3.9 11.6c0 4.6 3 8.5 7.2 9.9.5.1.7-.2.7-.5v-1.8c-2.9.6-3.5-1.2-3.5-1.2-.5-1.3-1.2-1.6-1.2-1.6-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 .1.7 1.9 2.9 2.7 0 .1.1.1.2.1.1 0 .2 0 .3-.1 1.8-.8 2.6-2.6 2.6-2.6.4-1.6 1.5-2 2.7-2.3.1-.8.4-1.4.8-1.8-2.3-.3-4.7-1.2-4.7-5.4 0-1.2.4-2.1 1-2.9-.1-.3-.4-1.4.1-2.9 0 0 .8-.3 2.8 1.1a9.8 9.8 0 012.6-.4c.9 0 1.9.1 2.6.4 2-.1 2.8-1.1 2.8-1.1.5 1.5.2 2.6.1 2.9.6.8 1 1.7 1 2.9 0 4.2-2.4 5-4.7 5.3.4.4.7 1.1.7 2.2v3.2c0 .3.2.6.7.5 4.2-1.4 7.2-5.3 7.2-9.9C23.1 5.3 18.3.5 12 .5z"/>
+						</svg>
+					</span>
+					<span class="sr-only">GitHub</span>
+				</a>
+
+				<a href="https://www.codecademy.com/" title="Codecademy profile">
+					<span class="icon" aria-hidden="true">
+						<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<circle cx="12" cy="12" r="10" stroke="#111" stroke-width="1.2" fill="#fff"/>
+							<path d="M7.5 12.2c0-1.9 1.4-3.3 3.4-3.3 1.9 0 3.4 1.4 3.4 3.3 0 1.9-1.5 3.3-3.4 3.3-2 0-3.4-1.4-3.4-3.3z" fill="#111"/>
+						</svg>
+					</span>
+					<span class="sr-only">Codecademy</span>
+				</a>
+			</div>
+
+			<p>&copy; 2025 Kanan Garayev. All rights reserved.</p>
+		</div>
+	</footer>
+</body>
+</html>
