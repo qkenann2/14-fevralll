@@ -165,6 +165,8 @@ function handleAnswerInput(input, wrapper, badge) {
         
         if (badge) badge.classList.add('visible');
         focusNext(wrapper);
+        // Re-check overall win condition whenever a puzzle letter is solved
+        checkWinCondition();
     } else if (val !== '') {
         input.classList.add('wrong');
         input.classList.remove('correct');
@@ -199,8 +201,20 @@ function checkWinCondition() {
     allInputs.forEach(inp => {
         if (!inp.classList.contains('correct')) isWin = false;
     });
-    
-    if (isWin) triggerWin();
+    // Require both the password inputs and all question answers to be correct
+    if (isWin && areAllQuestionsCorrect()) {
+        triggerWin();
+    }
+}
+
+function areAllQuestionsCorrect() {
+    const charInputs = document.querySelectorAll('.char-input');
+    if (!charInputs || charInputs.length === 0) return false;
+
+    for (let i = 0; i < charInputs.length; i++) {
+        if (!charInputs[i].classList.contains('correct')) return false;
+    }
+    return true;
 }
 
 function triggerWin() {
