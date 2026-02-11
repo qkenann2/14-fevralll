@@ -1,111 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Home - Personal Portfolio</title>
-	<link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xüsusi Məktub</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@400;600;800&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
-	<header>
-		<div class="container">
-			<nav aria-label="Primary">
-				<div class="brand">Kanan Garayev</div>
-				<ul class="nav-links">
-					<li><a href="index.html">Home</a></li>
-					<li><a href="about.html">About</a></li>
-					<li><a href="projects.html">Projects</a></li>
-					<li><a href="resume.html">Resume</a></li>
-				</ul>
-			</nav>
-		</div>
-	</header>
 
-	<main class="container">
-		<section class="home" aria-label="Home">
-			<figure class="profile-photo" aria-hidden="true">
-				<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-					<rect width="24" height="24" rx="4" fill="#eaf2fb"/>
-					<path d="M12 12a3 3 0 100-6 3 3 0 000 6z" fill="#9fbfe6"/>
-					<path d="M4 20a8 8 0 0116 0" fill="#cfe6fb"/>
-				</svg>
-			</figure>
+    <div id="intro-overlay">
+        <div class="intro-box">
+            <div class="notification-icon">💌</div>
+            <h1>SƏNƏ XÜSUSİ BİR MEKTUB GÖNDƏRİLDİ!</h1>
+            <p>Bu məktuba çatmaq asan deyil...</p>
+            <p style="font-size: 0.9rem; margin-top: 5px;">Sualları düzgün cavabla, şifrəni aç və məktubu oxu!</p>
+            <button class="start-btn" onclick="startGame()">BAŞLA</button>
+        </div>
+    </div>
 
-			<div class="intro">
-				<h1>Hi, I'm Kanan Garayev</h1>
-				<p>I'm an IT major passionate about building a strong career in technology. Outside of coding, I'm deeply into the gym, gaming, and always pushing myself to improve both mentally and physically.</p>
-			</div>
-		</section>
+    <div class="main-container" id="game-phase">
+        <header class="password-header">
+            <h1 class="title">Şifrəni Həll Et — Məktubu Aç 💌</h1>
+            <div class="password-display">
+                <div class="word-group" id="word-1"></div>
+                <div class="spacer"></div>
+                <div class="word-group" id="word-2"></div>
+            </div>
+            <p class="subtitle">Sualları cavabla, yuxarıdakı qutulara nömrələri yerləşdir!</p>
+            <p class="subtitle" style="margin-top:8px; font-weight:600;">İpucu: sevimli ev yeməyimiz</p>
+        </header>
 
-		<section id="about" aria-labelledby="about-heading">
-			<h2 id="about-heading">About</h2>
-			<p class="muted">A short paragraph about you. Mention skills, interests, or background. Keep it concise.</p>
-		</section>
+        <div class="quiz-layout">
+            <div class="col" id="left-column"></div>
+            <div class="col" id="right-column"></div>
+        </div>
+    </div>
 
-		<section id="projects" aria-labelledby="projects-heading">
-			<h2 id="projects-heading">Projects</h2>
-			<p class="muted">A few highlighted projects will go here. Link to project pages or repositories.</p>
-		</section>
+    <div class="letter-container" id="letter-phase">
+        <div class="envelope-wrapper" id="envelope" onclick="openEnvelope()">
+            <div class="envelope">
+                <div class="flap"></div>
+                <div class="pocket"></div>
+                <div class="letter-paper" onclick="readPaper(event)">
+                    <div class="paper-content">
+                        <h2>Nurayım birdənəm,</h2>
+                        <p>
+                            Nurayım birdənəm səni tanımağıma, həyatımda olmağına o qədər çox sevinirəm ki. Seni o qədər çox sevirəmki sənindeki yerini, dəyərini özüm belə qısqanıram bəzən.
+                            <br><br>
+                            Bilirəm bəzən səni əsəbləşdirirəm, incidirəm, istədiyin kimi davranmıram. Amma mən sənin incinməyini də, əsəbləşməyini də istəmərəm heç vaxt — həmişə xoşbəxt olmağını, gülməyini istəyirəm. Gülmək sənə çox yaraşır.
+                            <br><br>
+                            Gözəl sevgilim, mən hər gün səni daha çox sevirəm, daha çox bağlanıram sənə. Həmişə yanımda olmağını istəyirəm. Çiçəyim, gözəlim, yaxşı ki varsan — həyatımdasan, yaxşı ki səni sevirəm.
+                            <br><br>
+                            İlk Sevgililər Günümüz Mübarək. Ürəyim, sonsuzadək birlikdə olaq. ❤️
+                            <br>
+                            <span class="close-hint">(Bağlamaq üçün klikləyin)</span>
+                        </p>
+                    </div>
+                </div>
 
-		<section id="contact" aria-labelledby="contact-heading">
-			<h2 id="contact-heading">Get In Touch</h2>
-			<p class="muted">Have a question or want to collaborate? I'd love to hear from you!</p>
-			
-			<form id="contact-form" class="contact-form" aria-label="Contact form">
-				<div class="form-group">
-					<label for="name">Name</label>
-					<input type="text" id="name" name="name" required>
-				</div>
-				
-				<div class="form-group">
-					<label for="email">Email</label>
-					<input type="email" id="email" name="email" required>
-				</div>
-				
-				<div class="form-group">
-					<label for="subject">Subject</label>
-					<input type="text" id="subject" name="subject" required>
-				</div>
-				
-				<div class="form-group">
-					<label for="message">Message</label>
-					<textarea id="message" name="message" rows="5" required></textarea>
-				</div>
-				
-				<button type="submit" class="btn-submit">Send Message</button>
-				<p id="form-status" class="form-status"></p>
-			</form>
-		</section>
-	</main>
+                <img src="foto1.jpg" class="photo p1" alt="Photo 1">
+                <img src="foto2.jpg" class="photo p2" alt="Photo 2">
+                <img src="foto3.jpg" class="photo p3" alt="Photo 3">
+                <img src="foto4.jpg" class="photo p4" alt="Photo 4">
+                <img src="foto5.jpg" class="photo p5" alt="Photo 5">
+                <img src="foto6.jpg" class="photo p6" alt="Photo 6">
+            </div>
+        </div>
+    </div>
 
-	<footer>
-		<div class="container footer-inner">
-			<div class="socials" aria-label="Social links">
-				<a href="https://github.com/Kanann27033/personal-website" title="GitHub repository of this website">
-					<span class="icon" aria-hidden="true">
-						<svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-							<path d="M12 .5C5.7.5.9 5.3.9 11.6c0 4.6 3 8.5 7.2 9.9.5.1.7-.2.7-.5v-1.8c-2.9.6-3.5-1.2-3.5-1.2-.5-1.3-1.2-1.6-1.2-1.6-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 .1.7 1.9 2.9 2.7 0 .1.1.1.2.1.1 0 .2 0 .3-.1 1.8-.8 2.6-2.6 2.6-2.6.4-1.6 1.5-2 2.7-2.3.1-.8.4-1.4.8-1.8-2.3-.3-4.7-1.2-4.7-5.4 0-1.2.4-2.1 1-2.9-.1-.3-.4-1.4.1-2.9 0 0 .8-.3 2.8 1.1a9.8 9.8 0 012.6-.4c.9 0 1.9.1 2.6.4 2-.1 2.8-1.1 2.8-1.1.5 1.5.2 2.6.1 2.9.6.8 1 1.7 1 2.9 0 4.2-2.4 5-4.7 5.3.4.4.7 1.1.7 2.2v3.2c0 .3.2.6.7.5 4.2-1.4 7.2-5.3 7.2-9.9C23.1 5.3 18.3.5 12 .5z"/>
-						</svg>
-					</span>
-					<span class="sr-only">GitHub</span>
-				</a>
-
-				<a href="https://www.codecademy.com/" title="Codecademy profile">
-					<span class="icon" aria-hidden="true">
-						<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<circle cx="12" cy="12" r="10" stroke="#111" stroke-width="1.2" fill="#fff"/>
-							<path d="M7.5 12.2c0-1.9 1.4-3.3 3.4-3.3 1.9 0 3.4 1.4 3.4 3.3 0 1.9-1.5 3.3-3.4 3.3-2 0-3.4-1.4-3.4-3.3z" fill="#111"/>
-						</svg>
-					</span>
-					<span class="sr-only">Codecademy</span>
-				</a>
-			</div>
-
-			<div>
-				<a href="https://github.com/Kanann27033/Kanann27033.github.io">Website source on GitHub</a>
-			</div>
-		</div>
-	</footer>
+    <script src="script.js"></script>
 </body>
 </html>
 
