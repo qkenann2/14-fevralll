@@ -9,9 +9,9 @@ const puzzleConfig = [
     { id: 5, question: "How long I will love you?", answer: "FOREVER", clues: [] }
 ];
 
-// TARGET PASSWORD - KELEMDOLMASI (no spaces)
+// TARGET PASSWORD - KELEM DOLMASI (displayed as two words)
 const TARGET_PASSWORD = "KELEMDOLMASI";
-const PASSWORD_LENGTH_WORD1 = 6; // split the password inputs after 6 characters
+const PASSWORD_LENGTH_WORD1 = 5; // split the password inputs after 5 characters
 
 function startGame() {
     const overlay = document.getElementById('intro-overlay');
@@ -32,6 +32,7 @@ function initGame() {
 function createPasswordInputs() {
     const w1 = document.getElementById('word-1');
     const w2 = document.getElementById('word-2');
+    const allInputs = [];
     
     for (let i = 0; i < TARGET_PASSWORD.length; i++) {
         const slotNum = i + 1;
@@ -45,7 +46,14 @@ function createPasswordInputs() {
         input.dataset.index = i;
         input.dataset.correct = TARGET_PASSWORD[i];
         input.id = `pass-input-${slotNum}`;
-        input.addEventListener('input', (e) => checkPasswordInput(e.target));
+        allInputs.push(input);
+        
+        input.addEventListener('input', (e) => checkPasswordInput(e.target, allInputs));
+        input.addEventListener('keydown', (e) => {
+            if (e.key === 'Backspace' && input.value === '' && i > 0) {
+                allInputs[i - 1].focus();
+            }
+        });
         
         const label = document.createElement('span');
         label.className = 'slot-number-label';
@@ -62,14 +70,20 @@ function createPasswordInputs() {
     }
 }
 
-function checkPasswordInput(input) {
+function checkPasswordInput(input, allInputs) {
     let val = input.value.toUpperCase();
     input.value = val;
+    const currentIndex = parseInt(input.dataset.index);
     
     if (val === input.dataset.correct) {
         input.classList.add('correct');
         input.classList.remove('wrong');
-        input.blur();
+        
+        // Auto-advance to next field if available
+        if (currentIndex < allInputs.length - 1) {
+            allInputs[currentIndex + 1].focus();
+        }
+        
         checkWinCondition();
     } else if (val !== '') {
         input.classList.add('wrong');
